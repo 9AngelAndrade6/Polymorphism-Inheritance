@@ -78,14 +78,16 @@ public class Employee {
 		this.yearsWorked = yearsWorked;
 	}//setYearsWorked
 
-	 public void timeToRetirement(){
-	      // time to retirement = min(60 - age, 40 - yearsWorked)
+	 public int timeToRetirement(){
+		 return Math.min(60 - age, 40 - yearsWorked);
 	   }//timeToRetirement
-	 public void vacationTimeLeft(){
-	       // vacation time left = (daysWorked/360)*(30 - vacationDaysTaken)
+	 
+	 public int vacationTimeLeft(){
+	      return (daysWorked/360)*(30 - vacationDaysTaken);
 	   }//vacationTimeLeft
-	 public void calculateBonus(){
-	       // bonus = 2.2*salary
+	 
+	 public double calculateBonus(){
+	       return 2.2*salary;
 	   }//calculateBonus
 
 	@Override

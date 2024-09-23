@@ -3,7 +3,9 @@ package org.generation.classes;
 import java.util.HashMap;
 
 public class SalesManager extends SalesRep {
-HashMap <Integer, SalesRep> salesTeam = new HashMap<>();
+
+	private HashMap <Integer, SalesRep> salesTeam;
+
 	public SalesManager(String firstName, String lastName, int registration, int age, int daysWorked,
 			int vacationDaysTaken, double salary, int yearsWorked, double salesMade) {
 		super(firstName, lastName, registration, age, daysWorked, vacationDaysTaken, salary, yearsWorked, salesMade);
@@ -16,8 +18,29 @@ HashMap <Integer, SalesRep> salesTeam = new HashMap<>();
 		this.salesTeam = salesTeam;
 	}//setSalesTeam
 	
-	public void calculateComission(){
-	// 0.03 * all sales made by team
+	public double calculateComission(){
+		double total = 0;
+		for (SalesRep salesRep: salesTeam.values()) {
+			total += salesRep.getSalesMade();
+		}//foreach
+		return 0.03 * total;
 	}//calculateComission
 
+	public void addSalesrep(SalesRep salesRep) {
+		salesTeam.put(salesRep.getRegistration(), salesRep);
+	}//addSalesrep
+	
+	public SalesRep getSalesrep(int registration) {
+		return salesTeam.get(registration);
+	}//getSalesrep
+	
+	
+	public void printSalesTeamInfo() {
+		for(SalesRep salesRep: salesTeam.values()) {
+			System.out.println(salesRep.toString() +
+			salesRep.calculateBonus() + salesRep.getVacationDaysTaken());		
+		}
+	} 
+	
+	
 }//class SalesManager extends SalesRep

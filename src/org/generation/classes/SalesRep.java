@@ -1,7 +1,7 @@
 package org.generation.classes;
 
 public class SalesRep extends Employee{
-	double salesMade;
+	private double salesMade;
 
 	public SalesRep(String firstName, String lastName, int registration, int age, int daysWorked, int vacationDaysTaken,
 			double salary, int yearsWorked, double salesMade) {
@@ -16,13 +16,19 @@ public class SalesRep extends Employee{
 		this.salesMade = salesMade;
 	}//setSalesMade
 	
-	public void calculateComission(){
-		// comission = 0.1 * salesMade
+	public double calculateComission(){
+		return 0.1 * salesMade;
 	}//calculateComission
 
 	@Override
 	public String toString() {
-		return "SalesRep [salesMade=" + salesMade + "]";
-	}//toString
-		
+		return "SalesRep [salesMade=" + salesMade + ", getFirstName()=" + getFirstName() + ", getLastName()="
+				+ getLastName() + ", getRegistration()=" + getRegistration() + ", getAge()=" + getAge()
+				+ ", getDaysWorked()=" + getDaysWorked() + ", getVacationDaysTaken()=" + getVacationDaysTaken()
+				+ ", getSalary()=" + getSalary() + ", getYearsWorked()=" + getYearsWorked() + ", timeToRetirement()="
+				+ timeToRetirement() + ", vacationTimeLeft()=" + vacationTimeLeft() + ", calculateBonus()="
+				+ calculateBonus() + "]";
+	}
+
+	
 }//class SalesRep extends Employee
